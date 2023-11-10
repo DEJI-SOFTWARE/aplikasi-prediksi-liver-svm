@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
@@ -19,18 +20,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/login', function (Request $request) {
-    $email = $request->input('email');
-    $pasword = $request->input('password');
+Route::get('/login',[LoginController::class,'LoginView']);
+Route::post('/login',[LoginController::class,'login']);
 
-    if($email == 'feri@mgail.com' && $pasword == '123') {
-        return 'berhasil login';
-    }
-    return 'gagal login';
-
-
-});
-
-Route::get('/login', function () {
-    return view('login');
-});
+Route::get('/register', [LoginController::class,'RegisterView']);
+Route::post('/register',[LoginController::class,'register']);
