@@ -20,13 +20,14 @@
                         <div class="d-flex">
                             <a href="#" style="width: 50%;" class="btn btn-success border border-success">Masuk</a>
                             <a href="#" style="width: 50%;" class="btn border border-success">Daftar</a>
-                        
+
                         </div>
                       <div class="text-center mt-2">
                         <img src="https://icon-library.com/images/liver-icon/liver-icon-21.jpg"style="height: 80px;" alt="logo">
                         <h4 class="mt-1 mb-2">Masuk</h4>
                       </div>
-                      <form>
+                      <form action="/login" method="POST">
+                        @csrf()
                         <div class="mb-3">
                           <label class="form-label" for="email" >Email</label>
                           <input type="email" id="email" name="email" class="form-control border border-success"/>
@@ -36,7 +37,7 @@
                           <input type="password" id="password" name="password" class="form-control border border-success" />
                           <div class="form-check mt-1">
                             <input class="form-check-input bg-success" type="checkbox" id="form-checkbox" onclick="showHide()">
-                            <label class="form-check-label" for="form-checkbox">Default checkbox</label>
+                            <label class="form-check-label" for="form-checkbox">Lihat Password</label>
                           </div>
                         </div>
                         <div class="mt-2 mb-1">
@@ -70,7 +71,7 @@
          password.type = "password";
       }
       }
-  
+
 </script>
 </body>
 </html>

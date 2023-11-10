@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +17,20 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::post('/login', function (Request $request) {
+    $email = $request->input('email');
+    $pasword = $request->input('password');
+
+    if($email == 'feri@mgail.com' && $pasword == '123') {
+        return 'berhasil login';
+    }
+    return 'gagal login';
+
+
+});
+
+Route::get('/login', function () {
+    return view('login');
 });
