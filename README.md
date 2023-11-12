@@ -5,7 +5,9 @@ Untuk memastikan package/library terinstall di proyek pastikan melakukan update 
 
 ```
 composer install
-//dan
+```
+dan
+```
 composer update
 
 ```
