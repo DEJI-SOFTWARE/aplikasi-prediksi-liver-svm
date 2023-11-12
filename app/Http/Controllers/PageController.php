@@ -21,7 +21,7 @@ class PageController extends Controller
     }
 
     public function Training(){
-        return view('training');
+        return view('dummypage.datatraining');
     }
 
     public function Testing(){

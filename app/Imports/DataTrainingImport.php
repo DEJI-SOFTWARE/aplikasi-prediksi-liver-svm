@@ -15,7 +15,12 @@ class DataTrainingImport implements ToModel
     public function model(array $row)
     {
         return new DataSet([
-            //
+            'nama'=>$row['0'],
+            'x1'=>$row['1'],
+            'x2'=>$row['2'],
+            'x3'=>$row['3'],
+            'x4'=>$row['4'],
+            'hasil'=>$row['5'],
         ]);
     }
 }

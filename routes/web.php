@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DatasetController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
 use App\Models\DataSet;
 use App\Http\Controllers\LoginController;
@@ -35,7 +36,9 @@ Route::get('/dashboard',[UserController::class,'Dashboard']);
 Route::get('/profile',[UserController::class,'Profil']);
 Route::put('/profile/{id}',[UserController::class,'ProfilUpdate']);
 Route::get('visualisasi',[UserController::class,'Visualisasi']);
-Route::get('/data/training',[UserController::class,'Training']);
+// Route::get('/data/training',[UserController::class,'Training']);
+Route::get('/data/training',[PageController::class,'Training']);
+Route::post('/data/training',[DatasetController::class,'StoreDataTraining']);
 Route::get('/data/test',[UserController::class,'Testing']);
 
 Route::get('/logout',[UserController::class,'Logout']);
