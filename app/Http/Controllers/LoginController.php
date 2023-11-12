@@ -39,5 +39,13 @@ class LoginController extends Controller
         return redirect('/register')->with('success','Registrasi berhasil!! silahkan melakukan login');
     }
 
+    public function Logout(Request $request) : RedirectResponse{
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/login');
+    }
+
 
 }
