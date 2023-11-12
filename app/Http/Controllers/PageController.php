@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
     /*Profil page */
-    public function Profil(){
+    public function Profile(){
         return view('profil');
     }
 
@@ -29,11 +29,11 @@ class PageController extends Controller
     }
 
     /*Login Pages */
-    public function LoginView(Request $request){
+    public function Login(Request $request){
         return view('dummypage.login');
     }
 
-    public function RegisterView(Request $request){
+    public function Register(Request $request){
         return view('dummypage.register');
     }
 }

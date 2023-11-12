@@ -26,11 +26,15 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 // User Controller
 
-Route::get('/login', [UserController::class,'Login']);
-Route::post('/login', [UserController::class,'LoginPost']);
+Route::get('/', function(){
+    return "test";
+});
 
-Route::get('/register', [UserController::class,'Register']);
-Route::post('/register', [UserController::class,'RegisterPost']);
+Route::get('/login', [PageController::class,'Login'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class,'Login']);
+
+Route::get('/register', [PageController::class,'Register'])->name('register')->middleware('guest');
+Route::post('/register', [LoginController::class,'Register']);
 
 Route::get('/dashboard',[UserController::class,'Dashboard']);
 Route::get('/profile',[UserController::class,'Profil']);
@@ -41,7 +45,7 @@ Route::get('/data/training',[PageController::class,'Training']);
 Route::post('/data/training',[DatasetController::class,'StoreDataTraining']);
 Route::get('/data/test',[UserController::class,'Testing']);
 
-Route::get('/logout',[UserController::class,'Logout']);
+Route::delete('/logout',[LoginController::class,'Logout']);
 
 // End User Contrroller
 
@@ -66,10 +70,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard',[UserController::class,'Dashboard'])->name('dashboard');
-
-Route::get('/login',[LoginController::class,'LoginView'])->name('login');
-Route::post('/login',[LoginController::class,'login']);
-
-Route::get('/register', [LoginController::class,'RegisterView'])->name('register');
-Route::post('/register',[LoginController::class,'register']);
+Route::get('/dashboard',[PageController::class,'Dashboard'])->name('dashboard')->middleware('auth');
