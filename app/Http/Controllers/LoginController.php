@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    public function login(Request $request) {
+    public function Login(Request $request) {
 
         $valdiatedData = $request->validate([
             'email' => 'required|email',
@@ -26,27 +26,16 @@ class LoginController extends Controller
         ]);
     }
 
-    public function LoginView(Request $request){
-        return view('dummypage.login');
-    }
-
-    public function RegisterView(Request $request){
-        return view('dummypage.register');
-    }
-
-    public function register(Request $request) {
+    public function Register(Request $request) {
 
         $validatedData = $request->validate([
             'name' => ['required','string'],
             'email' => ['required','email:dns','unique:users'],
             'password'=>['required',],
         ]);
-
         // Hashing Password
         $validatedData['password'] = bcrypt($validatedData['password']);
-
         User::create($validatedData);
-
         return redirect('/register')->with('success','Registrasi berhasil!! silahkan melakukan login');
     }
 

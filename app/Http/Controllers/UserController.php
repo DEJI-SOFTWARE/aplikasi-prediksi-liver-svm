@@ -2,11 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function Dashboard(){
-        return view("dummypage.dashboard");
+
+
+    public function Create($validatedData){
+
     }
+    public function Update($id){
+
+    }
+
+    public function Delete($id){
+
+    }
+
+
+
+
+
+
+
 }
+
