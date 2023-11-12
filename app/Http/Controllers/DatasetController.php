@@ -6,23 +6,20 @@ use Illuminate\Http\Request;
 
 class DatasetController extends Controller
 {
-    public function UpTrainingData(){
+    public function UpdateDataTraining(){
 
     }
 
-    public function DelTrainingData(){
-
-    }
-    
-    public function TrainingData(){
-        return view();
-    }
-
-    public function UpTestingData(){
+    public function DeleteDataTraining(){
 
     }
 
-    public function DelTestingData(){
+
+    public function UpdateDataTesting(){
+
+    }
+
+    public function DeleteDataTesting(){
 
     }
 }
