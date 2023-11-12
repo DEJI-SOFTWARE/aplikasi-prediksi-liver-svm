@@ -52,3 +52,7 @@ class UserController extends Controller
         
     }
 }   
+    public function Dashboard(){
+        return view("dummypage.dashboard");
+    }
+}

@@ -1,9 +1,15 @@
 <?php
 
+
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DatasetController;
 use App\Http\Controllers\UserController;
 use App\Models\DataSet;
+
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UserController;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -55,3 +61,14 @@ Route::delete('/data/test/delete/{id}',[DatasetController::class,'DelTestingData
 
 //End Dataset Controller
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/dashboard',[UserController::class,'Dashboard'])->name('dashboard');
+
+Route::get('/login',[LoginController::class,'LoginView'])->name('login');
+Route::post('/login',[LoginController::class,'login']);
+
+Route::get('/register', [LoginController::class,'RegisterView'])->name('register');
+Route::post('/register',[LoginController::class,'register']);
