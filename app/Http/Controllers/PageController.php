@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PageController extends Controller
 {
     /*Profil page */
     public function Profile(){
-        return view('profil');
+        $user = Auth::user();
+        return view('dummypage.user-profiles',[
+            'user' => $user
+        ]);
     }
 
     /*Dashboard pages */

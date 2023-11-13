@@ -37,8 +37,8 @@ Route::get('/register', [PageController::class,'Register'])->name('register')->m
 Route::post('/register', [LoginController::class,'Register']);
 
 Route::get('/dashboard',[UserController::class,'Dashboard']);
-Route::get('/profile',[UserController::class,'Profil']);
-Route::put('/profile/{id}',[UserController::class,'ProfilUpdate']);
+Route::get('/profile',[PageController::class,'Profile'])->name('profile');
+Route::put('/profile/{id}',[UserController::class,'Update']);
 Route::get('visualisasi',[UserController::class,'Visualisasi']);
 // Route::get('/data/training',[UserController::class,'Training']);
 Route::get('/data/training',[PageController::class,'Training']);
@@ -60,7 +60,7 @@ Route::put('/admin/reset/{id}',[AdminController::class,'ResetPassword']);
 
 Route::post('/data/training/upload/{id}',[DatasetController::class,'UpTrainingData']);
 Route::delete('/data/training/delete/{id}',[DatasetController::class,'DelTrainingData']);
-Route::get('/training/start{id}',[DatasetController::class],'TrainingData');
+Route::get('/training/start{id}',[DatasetController::class,'TrainingData']);
 Route::post('/data/test/upload/{id}',[DatasetController::class,'UpTestingData']);
 Route::delete('/data/test/delete/{id}',[DatasetController::class,'DelTestingData']);
 
