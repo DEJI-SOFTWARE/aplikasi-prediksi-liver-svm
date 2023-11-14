@@ -1,5 +1,21 @@
-#Aplikasi Prediksi Penyakit Liver Menggunakan Algoritma SVM
+# Aplikasi Prediksi Penyakit Liver Menggunakan Algoritma SVM
 
-Catatan : buatlah database dengan nama aplikasi_svm
+## Install package/library
+Untuk memastikan package/library terinstall di proyek pastikan melakukan update composer
+
+```
+composer install
+```
+dan
+```
+composer update
+
+```
+
+## Migrate database
+Buatlah database MYSQL dengan nama aplikasi_svm
 lalu lakukan migrate
-``` php artisan migrate:fresh ````
+``` 
+php artisan migrate:fresh
+
+````

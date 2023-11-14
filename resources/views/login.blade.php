@@ -20,13 +20,13 @@
                         <div class="d-flex">
                             <a href="#" style="width: 50%;" class="btn btn-success border border-success">Login</a>
                             <a href="#" style="width: 50%;" class="btn border border-success">Register</a>
-                        
                         </div>
                       <div class="text-center mt-2">
                         <img src="https://icon-library.com/images/liver-icon/liver-icon-21.jpg"style="height: 80px;" alt="logo">
                         <h4 class="mt-1 mb-2">Login</h4>
                       </div>
-                      <form>
+                      <form action="/login" method="POST">
+                        @csrf()
                         <div class="mb-3">
                           <label class="form-label" for="email" >Email</label>
                           <input type="email" id="email" name="email" class="form-control border border-success"/>
@@ -75,7 +75,7 @@
          password.type = "password";
       }
       }
-  
+
 </script>
 </body>
 </html>
