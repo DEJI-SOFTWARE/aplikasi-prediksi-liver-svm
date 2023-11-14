@@ -6,7 +6,7 @@
     <!-- <link rel="stylesheet" href="style.css"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"> -->
-    <title>Masuk</title>
+    <title>Login</title>
 </head>
 <body>
     <section class="h-100 gradient-form" style="background-color: #fafafa">
@@ -18,13 +18,12 @@
                   <div class="col-lg-6" style="background-color: aliceblue;">
                     <div class="card-body p-md-5 mx-md-4">
                         <div class="d-flex">
-                            <a href="#" style="width: 50%;" class="btn btn-success border border-success">Masuk</a>
-                            <a href="#" style="width: 50%;" class="btn border border-success">Daftar</a>
-
+                            <a href="#" style="width: 50%;" class="btn btn-success border border-success">Login</a>
+                            <a href="#" style="width: 50%;" class="btn border border-success">Register</a>
                         </div>
                       <div class="text-center mt-2">
                         <img src="https://icon-library.com/images/liver-icon/liver-icon-21.jpg"style="height: 80px;" alt="logo">
-                        <h4 class="mt-1 mb-2">Masuk</h4>
+                        <h4 class="mt-1 mb-2">Login</h4>
                       </div>
                       <form action="/login" method="POST">
                         @csrf()
@@ -37,22 +36,27 @@
                           <input type="password" id="password" name="password" class="form-control border border-success" />
                           <div class="form-check mt-1">
                             <input class="form-check-input bg-success" type="checkbox" id="form-checkbox" onclick="showHide()">
-                            <label class="form-check-label" for="form-checkbox">Lihat Password</label>
+                            <label class="form-check-label" for="form-checkbox">Tampilkan Password</label>
                           </div>
                         </div>
                         <div class="mt-2 mb-1">
                           <a href="#" class="text-success">Lupa Password?</a>
                         </div>
                         <div class="mb-3">
-                        <button type="submit" class="btn btn-success container">Masuk</button>
+                        <button type="submit" class="btn btn-success container">Login</button>
                         </div>
                       </form>
                     </div>
                   </div>
                   <div class="col-lg-6 d-flex align-items-center bg-success">
-                    <div class="text-white px-3 py-4 p-md-5 mx-md-4">
-                        <h3>Lorem</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, autem porro ipsum, hic doloribus reiciendis culpa in sit, excepturi labore ex nesciunt dolores? Alias, debitis? Enim consequatur asperiores magnam inventore est nam esse animi hic? Ipsam dignissimos nisi cumque quis?</p>
+                    <div class="text-white px-3 py-4 p-md-5 mx-md-4 text-center">
+                        <h3 class="mb-5">Selamat datang di Aplikasi Prediksi Penyakit Liver</h3>
+                        <p>
+                          Dengan melakukan login, Anda memasuki pintu akses ke prediksi penyakit liver menggunakan teknologi canggih algoritma Support Vector Machine (SVM). Kami berkomitmen untuk menyediakan informasi yang bermutu dan membantu Anda dalam upaya menjaga kesehatan hati Anda.
+                          <br>
+                          Terima kasih atas kepercayaan Anda. Mari bersama-sama menjaga kesehatan hati Anda!
+
+                        </p>
                     </div>
                   </div>
                 </div>
