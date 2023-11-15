@@ -15,12 +15,12 @@
         </div>
         <ul class="nav-list">
             <li>
-                <a href="#">
+                <a href="/dashboard">
                     <i class="fa-solid fa-gauge fs-5"></i>
                     <span class="link-name">Dashboard</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a href="#" class="link-name">Dashboard</a></li>
+                    <li><span class="link-name">Dashboard</span></li>
                 </ul>
             </li>
             <li>
@@ -29,7 +29,7 @@
                     <span class="link-name">Data Training</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a href="#" class="link-name">Data Training</a></li>
+                    <li><span class="link-name">Data Training</span></li>
                 </ul>
             </li>
             <li>
@@ -38,7 +38,7 @@
                     <span class="link-name">Data Testing</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a href="#" class="link-name">Data Testing</a></li>
+                    <li><span class="link-name">Data Testing</span></li>
                 </ul>
             </li>
             <li>
@@ -47,7 +47,7 @@
                     <span class="link-name">Prediksi</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a href="#" class="link-name">Prediksi </a></li>
+                    <li><span class="link-name">Prediksi </span></li>
                 </ul>
             </li>
             <li>
@@ -56,16 +56,16 @@
                     <span class="link-name">Visualisasi</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a href="#" class="link-name">Visualisasi</a></li>
+                    <li><span class="link-name">Visualisasi</span></li>
                 </ul>
             </li>
             <li>
-                <a href="#">
+                <a href="/profile">
                     <i class="fa-solid fa-circle-user fs-5">
                     </i><span class="link-name">Profil</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a href="#" class="link-name">Profil</a></li>
+                    <li><span class="link-name">Profil</span></li>
                 </ul>
             </li>
         </ul>
@@ -85,5 +85,7 @@
         @yield('container')
     </div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 <script src="/js/app.js"></script>
 </html>

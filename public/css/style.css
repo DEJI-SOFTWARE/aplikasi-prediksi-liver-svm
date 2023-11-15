@@ -79,6 +79,7 @@ overflow: visible;
     margin-top: -10px;
     background-color: #F4C430;
     display: none;
+    
 }
 
 .sidebar.close .nav-list li .sub-menu{
@@ -167,7 +168,7 @@ overflow: visible;
 .home-section .home-content{
     display: flex;
     height: 60px;
-    position: fixed;
+    position: relative;
     width: 100%;
     background-color: #14A44D;
     align-items: center;
