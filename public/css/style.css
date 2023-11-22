@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body{
+    background-color: #fafafa;
+}
+
 .sidebar{
     position: fixed;
     top: 0;
@@ -156,7 +160,7 @@ overflow: visible;
     width: calc(100%-190px);
     left: 190px;
     top: -25px;
-    background-color: white;
+    background-color: #fafafa;
     transition: all .1s ease;
 }
 
@@ -178,12 +182,15 @@ overflow: visible;
 .home-section .navbar{
     margin-left: 470px;
     transition: all .1s ease;
-    border-style: solid;
+    /* border-style: solid;
     border-color: #fff;
     border-radius: 6px;
     background-color:#fff;
-    padding: 0 10px;
+    padding: 0 10px; */
 }
+
+
+
 .sidebar.close ~ .home-section .navbar{
     margin-left: 590px;
     transition: all .1s ease;
@@ -192,10 +199,10 @@ overflow: visible;
 .home-section .navbar .username{
     position: relative;
     white-space: nowrap;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 18px; 
-    width: 200px;
-    color: black;  
+    width: 300px;
+    color: white;  
     overflow: hidden;
 }
 .home-section .home-content i,
@@ -225,15 +232,68 @@ overflow: visible;
 }
 
 .sidebar ~ .content{
+    
     position: relative;
     left: 200px;
     top: -20px;
     transition: all .3s ease; 
     
 }
+
+/* .sidebar ~ .content::-webkit-scrollbar{
+    display:none;
+} */
 .sidebar.close ~ .content{
     position: relative;
     left: 85px;
-    
+}
+
+
+/* Halaman Data Training */
+
+.card-table{
+    width: 80%;
+    transition: all .3s ease;
+}
+
+.sidebar.close ~ .content .card-table{
+    width: 90%;
+}
+
+.card-table td{
+    word-wrap: break-word;
+    max-width: 180px;
+}
+
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_length{
+    margin-bottom: 10px;
+}
+.dataTables_wrapper .dataTables_paginate{
+    margin-top: 10px;
+}
+/*End Halaman Data Training */
+
+
+/* Halaman Profile */
+.card-photo-profile{
+    width: 200px;
+    justify-content:center;
+    align-items:center;
+    border-color: #F4C430;
+    border-width:3px;
+    border-right:none;
+}
+
+
+.card-profile{ 
+    width: 500px; 
+    border-color: #F4C430; 
+    border-width:3px; 
+    transition: all .3s ease;
+}
+
+.sidebar.close ~ .content .card-profile{
+    width: 600px; 
 }
 
