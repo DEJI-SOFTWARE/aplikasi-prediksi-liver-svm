@@ -1,0 +1,261 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #fafafa;
+}
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 190px;
+    background-color: #FF1661;
+    z-index: 100;
+    transition: all .1s ease;
+}
+.sidebar.close
+{
+    width: 70px;
+}
+
+.sidebar .logo{
+    height: 60px;
+    display: flex;
+    width: 100%;
+    align-items: end;
+    padding: 0 10px;
+}
+
+.sidebar .logo img{
+    font-size: 30px;
+    height: 50px;
+    min-width: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.sidebar .logo .logo-name{
+    font-size: 18px;
+    color: #fff;
+    font-weight: 600;
+    transition: all .1s ease;
+}
+
+.sidebar.close .logo .logo-name{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.sidebar .nav-list{
+    height: 100%;
+    padding: 10px 0 150px 0;
+    overflow: auto;
+}
+
+.sidebar.close .nav-list{
+overflow: visible;
+}
+
+.sidebar .nav-list::-webkit-scrollbar{
+    display: none;
+}
+
+.sidebar .nav-list li{
+    position: relative;
+    list-style: none;
+    transition: all .1s ease;
+    padding: 0 10px;
+}
+
+.sidebar .nav-list li:hover{
+    background-color: #16AAFF;
+    
+}
+
+.sidebar .nav-list li .sub-menu{
+    padding: 6px 6px 14px 20px;
+    margin-top: -10px;
+    background-color: #16AAFF;
+    display: none;
+    
+}
+
+.sidebar.close .nav-list li .sub-menu{
+    position: absolute;
+    left:100%;
+    height: 100%;
+    width: 150px;
+    top: -10px;
+    margin-top: 0;
+    padding: 2px 4px;
+    border-radius: 0 4px 4px 0;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+    transition: 0s;
+}
+
+.sidebar.close .nav-list li:hover .sub-menu{
+    top: 0;
+    opacity: 1  ;
+    pointer-events: none;
+    transition: all .1s ease;
+}
+
+.sidebar.close .nav-list li:hover .sub-menu .link-name{
+    font-size: 18px;
+    color: #fff;
+    font-weight: 600;
+    opacity: 1;
+    display: block;
+}
+
+.sidebar .nav-list li i{
+    height: 50px;
+    min-width: 70;
+    line-height: 50px;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all .3s ease;
+    position: relative;
+    left: 10px;
+}
+
+.sidebar .nav-list li a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.sidebar .nav-list li a .link-name{
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all .1s ease;
+    position: relative;
+    right: 30px;
+}
+
+.sidebar.close .nav-list li a .link-name{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.home-section{
+    position: relative;
+    height: 70px;
+    width: calc(100%-190px);
+    left: 190px;
+    top: -25px;
+    background-color: #fafafa;
+    transition: all .1s ease;
+}
+
+.sidebar.close ~ .home-section{
+    left: 70px;
+    width: 100%-70px;
+}
+
+.home-section .home-content{
+    display: flex;
+    height: 60px;
+    position: relative;
+    width: 100%;
+    background-color: #FF1661;
+    align-items: center;
+}
+
+
+.home-section .navbar{
+    margin-left: 470px;
+    transition: all .1s ease;
+
+}
+
+
+
+.sidebar.close ~ .home-section .navbar{
+    margin-left: 590px;
+    transition: all .1s ease;
+}
+
+.home-section .navbar .username{
+    position: relative;
+    white-space: nowrap;
+    font-weight: 600;
+    font-size: 18px; 
+    width: 300px;
+    color: white;  
+    overflow: hidden;
+}
+.home-section .home-content i,
+.home-section .home-content .text{
+    color: #fff;
+    font-size: 20px;
+}
+
+
+.home-section .home-content i{
+    margin: 0 15px;
+    cursor:pointer;
+}
+
+.home-section .home-content .text{
+    white-space: nowrap;
+    font-weight: 600;
+    
+}
+
+.sidebar.close ~ .home-section .text{
+    opacity: 1;
+}
+
+.sidebar ~ .home-section .text{
+    opacity: 0;
+}
+
+.sidebar ~ .content{
+    
+    position: relative;
+    left: 200px;
+    top: -20px;
+    transition: all .3s ease; 
+    
+}
+
+
+.sidebar.close ~ .content{
+    position: relative;
+    left: 85px;
+}
+
+
+.card-table{
+    width: 80%;
+    transition: all .3s ease;
+}
+
+.sidebar.close ~ .content .card-table{
+    width: 90%;
+}
+
+.card-table td{
+    word-wrap: break-word;
+    max-width: 180px;
+}
+
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_length{
+    margin-bottom: 10px;
+}
+.dataTables_wrapper .dataTables_paginate{
+    margin-top: 10px;
+}
+
