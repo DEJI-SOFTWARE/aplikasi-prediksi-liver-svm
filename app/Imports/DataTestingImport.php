@@ -2,19 +2,19 @@
 
 namespace App\Imports;
 
-use App\Models\DataSet;
+use App\Models\DataTesting;
 use Maatwebsite\Excel\Concerns\ToModel;
 
-class DataTrainingImport implements ToModel
+class DataTestingImport implements ToModel
 {
     /**
-     * @param array $row
-     *
-     * @return \Illuminate\Database\Eloquent\Model|null
-     */
+    * @param array $row
+    *
+    * @return \Illuminate\Database\Eloquent\Model|null
+    */
     public function model(array $row)
     {
-        return new DataSet([
+        return new DataTesting([
             'nama' => $row['0'],
             'tb' => $row['1'],
             'db' => $row['2'],
@@ -24,8 +24,7 @@ class DataTrainingImport implements ToModel
             'tp' => $row['6'],
             'alb' => $row['7'],
             'ag' => $row['8'],
-            'hasil' => $row['9'],
+            'prediksi' => $row['9'],
         ]);
-
     }
 }
