@@ -6,16 +6,19 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    
-    public function AdminDashboard(){
+
+    public function AdminDashboard()
+    {
 
     }
 
-    public function DeleteAccount(){
+    public function DeleteAccount()
+    {
 
     }
 
-    public function ResetPassword(){
+    public function ResetPassword()
+    {
 
     }
 

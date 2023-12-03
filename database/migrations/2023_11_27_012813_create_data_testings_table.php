@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('data_sets', function (Blueprint $table) {
+        Schema::create('data_testings', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
             $table->float('tb');
@@ -22,8 +22,7 @@ return new class extends Migration
             $table->float('tp');
             $table->float('alb');
             $table->float('ag');
-            $table->integer('hasil');
-            $table->float('prediksi')->nullable();
+            $table->integer('prediksi')->nullable();
             $table->timestamps();
         });
     }
@@ -33,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('data_sets');
+        Schema::dropIfExists('data_testings');
     }
 };

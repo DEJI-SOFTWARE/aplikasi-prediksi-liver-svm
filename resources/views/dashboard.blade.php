@@ -10,7 +10,7 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                             Data Training</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">999</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$data['training']}}</div>
                     </div>
                     <div class="col-auto">
                         <i class="fa-solid fa-brain fs-2 text-gray-300 text-primary"></i>
@@ -28,7 +28,7 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                             Data Testing</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">999</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$data['testing']}}</div>
                     </div>
                     <div class="col-auto">
                         <i class="fa-solid fa-microscope fs-2 text-gray-300 text-success"></i>
@@ -53,9 +53,8 @@
                             </div>
                             <div class="col">
                                 <div class="progress progress-sm border border-info mr-2">
-                                    <div class="progress-bar bg-info" role="progressbar"
-                                        style="width: 49%" aria-valuenow="99" aria-valuemin="0"
-                                        aria-valuemax="100"></div>
+                                    <div class="progress-bar bg-info" role="progressbar" style="width: 49%"
+                                        aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                         </div>
