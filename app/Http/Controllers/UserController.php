@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -44,6 +46,20 @@ class UserController extends Controller
         User::where('id', $id)->update($validatedData);
         return redirect()->route('profile')->with('success', 'Profile berhasil di perbarui!!');
 
+    }
+
+    public function UpdatePassword(Request $request){
+
+        $old_password = $request->old_password;
+        $new_password = $request->new_password;
+
+        $current_password = Auth::user()->password;
+
+        if(Hash::check($old_password, $current_password)){
+            return var_dump("berhasil");
+        }
+
+        return 'password lama anda salah';
     }
 
     public function Delete($id)

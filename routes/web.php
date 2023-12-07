@@ -35,6 +35,8 @@ Route::post('/register', [LoginController::class, 'Register']);
 //Profile Routes
 Route::get('/profile', [PageController::class, 'Profile'])->name('profile');
 Route::put('/profile/{id}', [UserController::class, 'UpdateProfile']);
+Route::patch('/profile/password', [UserController::class, 'UpdatePassword']);
+
 
 // Training Routes;
 Route::get('/data/training', [PageController::class, 'Training']);
