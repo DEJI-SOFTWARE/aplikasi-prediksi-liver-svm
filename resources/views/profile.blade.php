@@ -1,5 +1,6 @@
 @extends('layouts.main');
 @section('container')
+@include('sweetalert::alert')
 <h2 class="ms-3 mb-3">PROFILE</h2>
 <div class="row ms-3">
     <div class="card shadow-lg bg-warning card-photo-profile">

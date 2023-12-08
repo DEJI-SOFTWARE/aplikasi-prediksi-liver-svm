@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class LoginController extends Controller
 {
@@ -22,9 +23,8 @@ class LoginController extends Controller
             return redirect()->intended('/dashboard');
         }
 
-        return redirect("/login")->withErrors([
-            'login_failed' => 'Email atau password yang anda masukan salah!'
-        ]);
+        Alert::error('Gagal','Email atau password anda salah, coba lagi!!');
+        return redirect("/login");
     }
 
     public function Register(Request $request)
@@ -35,10 +35,11 @@ class LoginController extends Controller
             'email' => ['required', 'email:dns', 'unique:users'],
             'password' => ['required', 'min:5'],
         ]);
-        // Hashing Password
+
         $validatedData['password'] = bcrypt($validatedData['password']);
         User::create($validatedData);
-        return redirect('/register')->with('success', 'Silahkan melakukan login');
+        Alert::success('Berhasil','Akun berhasil dibuat, silahkan melakukan login!');
+        return redirect('/register');
     }
 
     public function Logout(Request $request): RedirectResponse
