@@ -1,5 +1,6 @@
 @extends('layouts.public-page.main')
 @section('containers')
+@include('sweetalert::alert')
 <div class="text-center mt-2">
     <img src="https://icon-library.com/images/liver-icon/liver-icon-21.jpg" style="height: 80px;" alt="logo">
     <h4 class="mt-1 mb-2">Login</h4>

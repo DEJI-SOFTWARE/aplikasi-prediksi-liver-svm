@@ -9,20 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
     <title>{{$title}}</title>
 </head>
-
 <body>
-    @error('login_failed')
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Gagal Login!</strong> {{$errors->first()}}.
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    @enderror
-    @if(session()->has('success'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Akun Berhasil Dibuat !!!</strong> {{session('success')}}.
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    @endif
     <section class="h-100 gradient-form" style="background-color: #fafafa">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">

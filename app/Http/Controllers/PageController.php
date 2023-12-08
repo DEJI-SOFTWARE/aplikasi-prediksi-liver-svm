@@ -6,6 +6,7 @@ use App\Models\DataSet;
 use App\Models\DataTesting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PageController extends Controller
 {

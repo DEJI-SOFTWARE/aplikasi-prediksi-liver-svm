@@ -1,5 +1,6 @@
 @extends('layouts.main');
 @section('container')
+@include('sweetalert::alert')
 <h2 class="ms-3 mb-3">PROFILE</h2>
 <div class="row ms-3">
     <div class="card shadow-lg bg-warning card-photo-profile">
@@ -73,4 +74,38 @@
     </div>
 </div>
 <!--End Modal Profile (Name & Username) -->
+
+<!-- Password -->
+<div class="modal fade" id="changePassword" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+aria-labelledby="changePasswordLabel" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header bg-warning">
+            <h1 class="modal-title fs-5" id="changePasswordLabel">Ubah Password</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="/profile/password" method="post">
+            @method('PATCH')
+            @csrf
+        <div class="modal-body">
+            <div class="mb-3">
+                <label for="passOld" class="form-label">Password Lama</label>
+                <input type="password" class="form-control" style="border-color: #F4C430; border-width:3px;"
+                    id="passOld" name="old_password">
+            </div>
+            <div class="mb-3">
+                <label for="name" class="form-label">Password Baru</label>
+                <input type="password" class="form-control" style="border-color: #F4C430; border-width:3px;"
+                    id="password" name="new_password">
+            </div>
+        </div>
+        <div class="modal-footer bg-warning">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Ubah Password</button>
+        </div>
+    </form>
+    </div>
+</div>
+</div>
+{{-- End Modal Password --}}
 @endsection
