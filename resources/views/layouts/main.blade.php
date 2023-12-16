@@ -10,7 +10,10 @@
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
-    <title>{{$title}}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>{{ $title }}</title>
 </head>
 
 <body>
@@ -133,18 +136,20 @@
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="image" class="form-label">Foto</label>
-                            <input type="file" class="form-control" style="border-color: #F4C430; border-width:3px;"
-                                id="image" name="image">
+                            <input type="file" class="form-control"
+                                style="border-color: #F4C430; border-width:3px;" id="image" name="image">
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" style="border-color: #F4C430; border-width:3px;"
-                                id="email" name="email" value="">
+                            <input type="email" class="form-control"
+                                style="border-color: #F4C430; border-width:3px;" id="email" name="email"
+                                value="">
                         </div>
                         <div class="mb-3">
                             <label for="name" class="form-label">Nama</label>
-                            <input type="text" class="form-control" style="border-color: #F4C430; border-width:3px;"
-                                id="nama" name="nama" value="">
+                            <input type="text" class="form-control"
+                                style="border-color: #F4C430; border-width:3px;" id="nama" name="nama"
+                                value="">
                         </div>
                     </div>
                     <div class="modal-footer bg-warning">
