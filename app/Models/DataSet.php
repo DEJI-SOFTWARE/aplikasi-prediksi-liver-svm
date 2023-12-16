@@ -21,4 +21,9 @@ class DataSet extends Model
         'hasil',
     ];
 
+    public function DeleteData()
+    {
+        DB::table('data_sets')->truncate();
+    }
+
 }

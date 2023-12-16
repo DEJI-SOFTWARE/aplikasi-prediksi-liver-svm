@@ -42,6 +42,7 @@ Route::patch('/profile/password', [UserController::class, 'UpdatePassword']);
 Route::get('/data/training', [PageController::class, 'Training']);
 Route::post('/data/training', [DatasetController::class, 'StoreDataTraining']);
 Route::get('/training/start', [DatasetController::class, 'TrainingDataStart']);
+Route::get('/training/delete', [DatasetController::class, 'DeleteDataTraining']);
 
 //Testing Routes
 Route::get('/data/testing', [PageController::class, 'Testing']);

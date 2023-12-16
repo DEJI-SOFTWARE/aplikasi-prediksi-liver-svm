@@ -6,9 +6,11 @@ use App\Imports\DataTestingImport;
 use App\Imports\DataTrainingImport;
 use App\Models\DataTesting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Services\SVMService;
 use App\Models\DataSet;
+use RealRashid\SweetAlert\Facades\Alert;
 use \SVM;
 
 class DatasetController extends Controller
@@ -22,18 +24,31 @@ class DatasetController extends Controller
             'data_training' => 'required|mimes:csv,xls,xlsx'
         ]);
 
-
         $file = $request->file('data_training');
         $namaFile = $file->getClientOriginalName();
         $file->move('dataset', $namaFile);
         Excel::import(new DataTrainingImport, public_path('/dataset/' . $namaFile));
+        Alert::success('Upload Berhasil', 'Data training berhasil di import');
+        return redirect()->back();
+    }
 
+    public function DeleteDataTraining()
+    {
+        DB::table('data_sets')->truncate();
+
+        Alert::success('Berhasil', 'Data berhasil di hapus');
         return redirect()->back();
     }
 
     public function TrainingDataStart()
     {
+
         $dataTraining = DataSet::all()->toArray();
+
+        if (count($dataTraining) <= 0) {
+            Alert::error('Gagal', 'Data training tidak ada');
+            return redirect()->back();
+        }
 
         $result = [];
         foreach ($dataTraining as $data) {
@@ -53,8 +68,7 @@ class DatasetController extends Controller
         $svm = new SVM();
         $svm->setOptions([SVM::OPT_KERNEL_TYPE => SVM::KERNEL_LINEAR]);
         $model = $svm->train($result);
-        // $model->save('model.svm');
-        // $cekData = [];
+
         foreach ($dataTraining as $data) {
             $dataTest = [
                 'x1' => $data['tb'],
@@ -68,31 +82,14 @@ class DatasetController extends Controller
             ];
 
             $hasil = $model->predict($dataTest);
-            // array_push($cekData, $hasil);
+
             DataSet::where('id', $data['id'])->update([
                 'prediksi' => $hasil
             ]);
         }
-        // $dataTest = [
-        //     'x1' => 1,
-        //     'x2' => 0.3,
-        //     'x3' => 187,
-        //     'x4' => 19,
-        //     'x5' => 23,
-        //     'x6' => 5.2,
-        //     'x7' => 2.9,
-        //     'x8' => 1.2
-        // ];
 
-        // $hasil = $model->predict($dataTest);
-        $positifHasil = DataSet::where('hasil', 1)->get();
-        $positifPrediksi = DataSet::where('prediksi', 1)->get();
-        $negatif = DataSet::where('hasil', 1)->get();
-        //1	0.3	187	19	23	5.2	2.9	1.2
+        return back();
 
-
-        return var_dump("Data Hasil (1) : ", $positifHasil->count(), "Data Prediksi (1) : ", $positifPrediksi->count());
-        // return var_dump($cekData);
     }
 
 

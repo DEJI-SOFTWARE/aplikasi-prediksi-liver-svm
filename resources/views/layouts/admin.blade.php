@@ -45,7 +45,8 @@
                 <ul class="dropdown-menu border border-danger">
                     <li>
                         <form action="#">
-                            <a href="#" class="dropdown-item fw-bold"> Log Out</a>
+                            <a href="#" class="dropdown-item fw-bold"><i class="fa-solid fa-trash"></i> Log
+                                Out</a>
                     </li>
                     </form>
                 </ul>
