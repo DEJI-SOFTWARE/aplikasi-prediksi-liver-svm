@@ -48,6 +48,7 @@ Route::get('/training/delete', [DatasetController::class, 'DeleteDataTraining'])
 Route::get('/data/testing', [PageController::class, 'Testing']);
 Route::post('/data/testing', [DatasetController::class, 'StoreDataTesting']);
 Route::get('/testing/start', [DatasetController::class, 'TestingDataStart']);
+Route::delete('/data/testing', [DatasetController::class, 'DeleteDataTesting']);
 Route::post('/data/training/upload/{id}', [DatasetController::class, 'UpTrainingData']);
 Route::delete('/data/training/delete/{id}', [DatasetController::class, 'DelTrainingData']);
 Route::post('/data/test/upload/{id}', [DatasetController::class, 'UpTestingData']);
