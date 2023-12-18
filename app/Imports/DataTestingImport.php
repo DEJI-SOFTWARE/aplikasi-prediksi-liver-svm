@@ -8,10 +8,10 @@ use Maatwebsite\Excel\Concerns\ToModel;
 class DataTestingImport implements ToModel
 {
     /**
-    * @param array $row
-    *
-    * @return \Illuminate\Database\Eloquent\Model|null
-    */
+     * @param array $row
+     *
+     * @return \Illuminate\Database\Eloquent\Model|null
+     */
     public function model(array $row)
     {
         return new DataTesting([
@@ -24,7 +24,6 @@ class DataTestingImport implements ToModel
             'tp' => $row['6'],
             'alb' => $row['7'],
             'ag' => $row['8'],
-            'prediksi' => $row['9'],
         ]);
     }
 }

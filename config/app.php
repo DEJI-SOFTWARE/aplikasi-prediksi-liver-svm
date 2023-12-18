@@ -156,20 +156,22 @@ return [
     */
 
     'providers' => ServiceProvider::defaultProviders()->merge([
-        /*
-         * Package Service Providers...
-         */
+            /*
+             * Package Service Providers...
+             */
         Maatwebsite\Excel\ExcelServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
-        /*
-         * Application Service Providers...
-         */
+            /*
+             * Application Service Providers...
+             */
 
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
+            // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\SvmServiceProvider::class,
+
     ])->toArray(),
 
     /*
