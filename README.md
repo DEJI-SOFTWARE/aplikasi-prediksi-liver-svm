@@ -22,9 +22,24 @@ php artisan migrate:fresh
 
 ## Hasil Tampilan Aplikasi
 1. Halaman Login
-   ![login](https://github.com/DEJI-SOFTWARE/aplikasi-prediksi-liver-svm/assets/26159658/fe4b0981-47ac-48ba-9112-eeaaea16c805)
+   ![alt text](https://github.com/DEJI-SOFTWARE/aplikasi-prediksi-liver-svm/blob/develop/Example/image/ha-login.png?raw=true)
 
 2. Halaman Register
-   ![register](https://github.com/DEJI-SOFTWARE/aplikasi-prediksi-liver-svm/assets/26159658/dbe0f7cb-d076-40c9-bea9-ae6ceafe26ff)
+   ![alt text](https://github.com/DEJI-SOFTWARE/aplikasi-prediksi-liver-svm/blob/develop/Example/image/hal-register.png?raw=true)
+
+3. Halaman Dashboard
+   ![alt text](https://github.com/DEJI-SOFTWARE/aplikasi-prediksi-liver-svm/blob/develop/Example/image/hal-dashboard.png?raw=true)
+   
+5. Halaman Data Training
+   ![alt text](https://github.com/DEJI-SOFTWARE/aplikasi-prediksi-liver-svm/blob/develop/Example/image/hal-data-training.png?raw=true)
+   
+7. Halaman Data Testing
+   ![alt text](https://github.com/DEJI-SOFTWARE/aplikasi-prediksi-liver-svm/blob/develop/Example/image/hal-data-testing.png?raw=true)
+   
+9. Halaman Visualisasi
+    ![alt text](https://github.com/DEJI-SOFTWARE/aplikasi-prediksi-liver-svm/blob/develop/Example/image/has-viusalisasi.png?raw=true)
+   
+11. Halaman Profile
+    ![alt text](https://github.com/DEJI-SOFTWARE/aplikasi-prediksi-liver-svm/blob/develop/Example/image/hal-profile.png?raw=true)
 
 
