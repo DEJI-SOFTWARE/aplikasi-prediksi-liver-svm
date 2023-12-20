@@ -157,16 +157,17 @@ overflow: visible;
 .home-section{
     position: relative;
     height: 70px;
-    width: calc(100%-190px);
+    width: calc(100% - 190px);
     left: 190px;
     top: -25px;
     background-color: #fafafa;
-    transition: all .1s ease;
+    transition: all 0.1s ease;
+
 }
 
 .sidebar.close ~ .home-section{
     left: 70px;
-    width: 100%-70px;
+    width: calc(100% - 70px);
 }
 
 .home-section .home-content{
@@ -176,23 +177,19 @@ overflow: visible;
     width: 100%;
     background-color: #14A44D;
     align-items: center;
+    padding-right: 80px;
+    
 }
 
 
 .home-section .navbar{
-    margin-left: 470px;
-    transition: all .1s ease;
-    /* border-style: solid;
-    border-color: #fff;
-    border-radius: 6px;
-    background-color:#fff;
-    padding: 0 10px; */
+    margin-left: auto;
 }
 
 
 
 .sidebar.close ~ .home-section .navbar{
-    margin-left: 590px;
+    margin-left: auto;
     transition: all .1s ease;
 }
 
@@ -225,6 +222,7 @@ overflow: visible;
 
 .sidebar.close ~ .home-section .text{
     opacity: 1;
+
 }
 
 .sidebar ~ .home-section .text{
