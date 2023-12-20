@@ -6,6 +6,8 @@ use App\Http\Controllers\DatasetController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
+use App\Models\DataSet;
+use App\Models\DataTesting;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -68,4 +70,28 @@ Route::put('/admin/reset/{id}', [AdminController::class, 'ResetPassword']);
 
 
 Route::get('/', [PageController::class, 'index']);
+Route::get('/test', function () {
+
+    $dataTraining = DataSet::all();
+
+    $dataAktual = [
+        'positif' => $dataTraining->where('hasil', 1)->count(),
+        'negatif' => $dataTraining->where('hasil', -1)->count()
+    ];
+
+    $dataPrediksi = [
+        'positif' => $dataTraining->where('prediksi', 1)->count(),
+        'negatif' => $dataTraining->where('prediksi', -1)->count()
+    ];
+
+    $dataSet = [
+        'aktual' => $dataAktual,
+        'prediksi' => $dataPrediksi,
+        'selisih' => [
+            'positif' => abs($dataAktual['positif'] - $dataPrediksi['positif']),
+            'negatif' => abs($dataAktual['negatif'] - $dataPrediksi['negatif']),
+        ],
+    ];
+    return json_encode($dataSet);
+});
 
