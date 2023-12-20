@@ -53,7 +53,7 @@ class DatasetController extends Controller
         $dataTraining = DataSet::all()->toArray();
 
         if (count($dataTraining) <= 0) {
-            Alert::error('Gagal', 'Data training tidak ada');
+            Alert::error('Gagal', 'Data training tidak ada, coba import terlebih dahulu');
             return redirect()->back();
         }
 
@@ -66,7 +66,7 @@ class DatasetController extends Controller
         // }
 
 
-        Alert::success('Berhasil', 'Data berhasil di prediksi!!');
+        Alert::success('Berhasil', 'Data berhasil di training!!');
         return back();
 
     }
@@ -91,8 +91,14 @@ class DatasetController extends Controller
 
         $dataTesting = DataTesting::all()->toArray();
         $dataTraining = DataSet::all()->toArray();
+        if (count($dataTesting) <= 0 || count($dataTraining) <= 0) {
+            Alert::error('Gagal', 'Data tidak ada, pastikan data training dan testing sudah di import');
+            return redirect()->back();
+        }
+
         $this->svmservice->PrediksiData($dataTraining, $dataTesting, DataTesting::class);
 
+        Alert::success('Berhasil', 'Data berhasil di prediksi!!');
         return back();
     }
 
@@ -102,5 +108,30 @@ class DatasetController extends Controller
 
         Alert::success('Berhasil', 'Data berhasil di hapus');
         return redirect()->back();
+    }
+
+    public function GetDataSet()
+    {
+        $dataTraining = DataSet::all();
+
+        $dataAktual = [
+            'positif' => $dataTraining->where('hasil', 1)->count(),
+            'negatif' => $dataTraining->where('hasil', -1)->count()
+        ];
+
+        $dataPrediksi = [
+            'positif' => $dataTraining->where('prediksi', 1)->count(),
+            'negatif' => $dataTraining->where('prediksi', -1)->count()
+        ];
+
+        $dataSet = [
+            'aktual' => $dataAktual,
+            'prediksi' => $dataPrediksi,
+            'selisih' => [
+                'positif' => abs($dataAktual['positif'] - $dataPrediksi['positif']),
+                'negatif' => abs($dataAktual['negatif'] - $dataPrediksi['negatif']),
+            ],
+        ];
+        return json_encode($dataSet);
     }
 }

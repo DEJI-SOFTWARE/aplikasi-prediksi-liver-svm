@@ -14,7 +14,7 @@
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>{{ $title }}</title>
-    @vite('resources/js/mychart.js')
+    <link rel="icon" type="image/x-icon" href="/img/liver-icon.png">
 </head>
 
 <body>
@@ -78,8 +78,9 @@
             <div class="navbar dropdown">
                 <a class="dropdown-toggle text-white" style="text-decoration: none" href="#" role="button"
                     data-bs-toggle="dropdown">
-                    <img src="/img/blank-profile.png" class="rounded-circle me-2" alt="foto profile"
-                        style="height: 35px;">
+                    <img src="{{ asset('storage/' . Auth::user()->image) }}"
+                        class="rounded-circle me-2 border border-1 border-light" alt="foto profile"
+                        style="height: 33px; width: 33px; overflow:hidden;>
                     <span class="username">{{ Auth::user()->name }}</span>
                 </a>
                 <ul class="dropdown-menu border border-success">

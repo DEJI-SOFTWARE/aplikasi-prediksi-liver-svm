@@ -7,10 +7,16 @@ use App\Models\DataTesting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Service\Utils\CheckDataSet;
 
 class PageController extends Controller
 {
 
+    protected $checkDatasetUtils;
+    public function __construct()
+    {
+        // $this->checkDatasetUtils = new CheckDataSet();
+    }
 
     public function index()
     {
@@ -35,19 +41,37 @@ class PageController extends Controller
     {
         $data_training = DataSet::all();
         $data_testing = DataTesting::all();
-        $akurasi = [
-            'selisih' => [
-                'positif' => abs($data_training->where('hasil', 1)->count() - $data_training->where('prediksi', 1)->count()),
-                'negatif' => abs($data_training->where('hasil', -1)->count() - $data_training->where('prediksi', -1)->count())
-            ]
-        ];
+        if (CheckDataSet::IsDataEmpty($data_training)) {
+            $akurasi = [
+                'selisih' => [
+                    'positif' => 0,
+                    'negatif' => 0,
+
+                ],
+                'persentase' => 0
+            ];
+        } else {
+            $prediksi = [
+                'selisih' => [
+                    'positif' => abs($data_training->where('hasil', 1)->count() - $data_training->where('prediksi', 1)->count()),
+                    'negatif' => abs($data_training->where('hasil', -1)->count() - $data_training->where('prediksi', -1)->count())
+                ],
+            ];
+            $persentase = (($data_training->count() - ($prediksi['selisih']['positif'] + $prediksi['selisih']['negatif'])) / $data_training->count()) * 100;
+
+            $akurasi = [
+                $prediksi,
+                'persentase' => $persentase
+            ];
+
+        }
 
         return view("dashboard", [
             'title' => 'Dashboard',
             'data' => [
                 'training' => $data_training->count(),
                 'testing' => $data_testing->count(),
-                'akurasi' => (($data_training->count() - ($akurasi['selisih']['positif'] + $akurasi['selisih']['negatif'])) / $data_training->count()) * 100
+                'akurasi' => $akurasi
             ]
         ]);
     }
@@ -55,27 +79,7 @@ class PageController extends Controller
     public function Visualisasi()
     {
         $dataSets = DataSet::all();
-        $dataAktual = [
-            'dataPositif' => $dataSets->where('hasil', 1)->count(),
-            'dataNegatif' => $dataSets->where('hasil', -1)->count()
-        ];
-        $dataPrediksi = [
-            'dataPositif' => $dataSets->where('prediksi', 1)->count(),
-            'dataNegatif' => $dataSets->where('prediksi', -1)->count()
-        ];
-        $DataSelisih = [
-            'positif' => abs($dataAktual['dataPositif'] - $dataPrediksi['dataPositif']),
-            'negatif' => abs($dataAktual['dataNegatif'] - $dataPrediksi['dataNegatif'])
-        ];
-        $data = [
-            'dataAktual' => $dataAktual,
-            'dataPrediksi' => $dataPrediksi,
-            'selisih' => [
-                'positif' => abs($dataAktual['dataPositif'] - $dataPrediksi['dataPositif']),
-                'negatif' => abs($dataAktual['dataNegatif'] - $dataPrediksi['dataNegatif'])
-            ],
-            'akurasi' => (($dataSets->count() - ($DataSelisih['positif'] + $DataSelisih['negatif'])) / $dataSets->count()) * 100,
-        ];
+        $data = CheckDataSet::CheckData($dataSets);
         return view('visualisasi', [
             'title' => 'Visualisasi',
             'data' => $data

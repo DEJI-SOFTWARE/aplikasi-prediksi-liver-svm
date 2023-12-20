@@ -44,7 +44,7 @@ Route::patch('/profile/password', [UserController::class, 'UpdatePassword']);
 Route::get('/data/training', [PageController::class, 'Training']);
 Route::post('/data/training', [DatasetController::class, 'StoreDataTraining']);
 Route::get('/training/start', [DatasetController::class, 'TrainingDataStart']);
-Route::get('/training/delete', [DatasetController::class, 'DeleteDataTraining']);
+Route::delete('/training/delete', [DatasetController::class, 'DeleteDataTraining']);
 
 //Testing Routes
 Route::get('/data/testing', [PageController::class, 'Testing']);
@@ -70,28 +70,7 @@ Route::put('/admin/reset/{id}', [AdminController::class, 'ResetPassword']);
 
 
 Route::get('/', [PageController::class, 'index']);
-Route::get('/test', function () {
 
-    $dataTraining = DataSet::all();
-
-    $dataAktual = [
-        'positif' => $dataTraining->where('hasil', 1)->count(),
-        'negatif' => $dataTraining->where('hasil', -1)->count()
-    ];
-
-    $dataPrediksi = [
-        'positif' => $dataTraining->where('prediksi', 1)->count(),
-        'negatif' => $dataTraining->where('prediksi', -1)->count()
-    ];
-
-    $dataSet = [
-        'aktual' => $dataAktual,
-        'prediksi' => $dataPrediksi,
-        'selisih' => [
-            'positif' => abs($dataAktual['positif'] - $dataPrediksi['positif']),
-            'negatif' => abs($dataAktual['negatif'] - $dataPrediksi['negatif']),
-        ],
-    ];
-    return json_encode($dataSet);
-});
+//APi
+Route::get('/datatraining', [DataSetController::class, 'GetDataSet']);
 

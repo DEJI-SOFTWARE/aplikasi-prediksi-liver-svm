@@ -3,7 +3,7 @@ import ChartDataLabels from 'chartjs-plugin-datalabels'
 import axios from "axios";
 
 const oshi = ''
-axios.get('/test')
+axios.get('/datatraining')
     .then((response) => {
 
         const dataSelisih = response.data.selisih

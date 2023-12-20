@@ -18,13 +18,10 @@
                         Data</button>
                 </div>
             </form>
-            <form action="/training/delete" method="get">
-                @method('GET')
-                @csrf
-                <div class="mx-2">
-                    <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i>&nbsp;Hapus Data</button>
-                </div>
-            </form>
+            <div class="mx-2">
+                <button type="submit" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteDataTraining"><i
+                        class="fa-solid fa-trash"></i>&nbsp;Hapus Data</button>
+            </div>
         </div>
 
         <div class="card-body shadow-lg card-table ">
@@ -68,7 +65,7 @@
         </div>
     </div>
 
-    {{-- Modal Page Training Page --}}
+    {{-- Modal Upload Training Data --}}
     <div class="modal fade" id="inputDataTraining" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="inputDataTrainingLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -94,5 +91,30 @@
             </div>
         </div>
     </div>
-    {{-- End Modal Training Page --}}
+    {{-- End Modal Upload Training Data --}}
+
+    {{-- Modal Delete Training Data --}}
+    <div class="modal fade" id="deleteDataTraining" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="deleteDataTrainingLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="inputDataTrainingLabel">Hapus Data Training</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="/training/delete" method="post">
+                    @method('delete')
+                    @csrf
+                    <div class="modal-body">
+                        <p>Apakah anda yakin ingin menghapus training data ?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- End Modal Delete Training Data --}}
 @endsection
