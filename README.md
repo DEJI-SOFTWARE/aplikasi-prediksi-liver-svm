@@ -1,36 +1,69 @@
 # **Aplikasi Prediksi Penyakit Liver Menggunakan Algoritma SVM**
-
-### Table of Content
-* [Instalasi](#instalasi_anchor)
-* [Section 2](#section2)
-* [Section 3](#section3)
+**Author by:** *Natsuki-Yasumi & yunatamaaldho*
 
 Selamat datang di dokumentasi Aplikasi Prediksi Penyakt Liver Menggunakan Algoritma SVM.
 seperti namanya aplikasi ini bertujuan untuk memprediksi apakah orang itu mengidap penyakit liver atau tidak, berdasarkan data latih yang di inputkan.
 aplikasi ini menggunakan bantuan library libsvm dari PHP.
 
+### Table of Content
+* [Required](#required)
+* [Instalasi](#instalasi)
+* [Hasil Tampilan](#hasil_tampilan)
 
+
+  <a name="required"></a>
+  ## **Required**
+  Sebelum melakukan instalasi, kalian harus menginstal beberapa software dan library, adapun list nya sebagai berikut :
+  + Composer
+  + NodeJs
+  + Libsvm
+  + Mysql
+
+> [!Note]
+> Untuk melihat dokumentasi tentang Libsvm di php bisa kunjungi [link ini](https://www.php.net/manual/en/book.svm.php), dan untuk instalasi libsvm bisa kunjungi [di sini](https://www.php.net/manual/en/svm.installation.php)
+ 
+
+
+
+<a name="instalasi"></a>
+## **Instalasi**
+Bukalah direktori yang akan dijadikan tempat menyimpan prooject/aplikasi nya, lalu setelah itu melakukan instalasi project laravel menggunakan composer, ketikan perintah `composer create-project laravel/laravel aplikasi-svm`
+
+```
+composer create-project laravel/laravel aplikasi-svm
+```
+> [!Note]
+> Disini saya menamai aplikasinya dengan **aplikasi-svm**, kalian bisa mengganti namanya sesuai dengan keinginan
 ## Install package/library
-Untuk memastikan package/library terinstall di proyek pastikan melakukan update composer
 
+Untuk memastikan package/library terinstall di proyek ketikan perintah `composer install` dan `npm install`
 ```
-composer install
+composer intsall
+npm install
 ```
-dan
-```
-composer update
-
-```
+## Membuat Database
+Pada aplikasi ini saya menggunakan database **MYSQL** artinya, kalian harus membuat sebuah database dari mysql, disini saya membuatnya dengan nama **aplikasi_svm** (kalian bisa menamainya dengan apapun).
+setelah database dibuat, pastikan mysql server dalam keadaan nyala.
 
 ## Migrate database
-Buatlah database MYSQL dengan nama aplikasi_svm
-lalu lakukan migrate
+setelah membuat database, lalu lakukan lah migrate database dengan perintah `php artisan migrate:fresh` dengan menggunakan terminal
 ``` 
 php artisan migrate:fresh
 
 ````
-### section-1
-[Section 1](#section-1)
+## Atur File .ENV
+ketika pertamakali melakukan clone maka tidak ada file `.env` sehingga kalian harus mengubah nama `env.example` menjadi `.env`.
+setelah itu ubahlah settingan konfigurasi mengikuti configurasi kalian
+
+## Menjalankan Aplikasi
+Setelah langkah-langkah di atas sudah dilakukan, maka saatnya menjalankan aplikasi dengan cara mengetikan `php artisan serve` di terminal
+```
+php artisan serve
+```
+>[!Note]
+>ketika menuliskan perintah `php artisan serve` di terminal, pastikan kalian sudah berada dalam direktori aplikasinya
+
+<a name="hasil_tampilan"></a>
 ## Hasil Tampilan Aplikasi
 1. Halaman Login
    ![alt text](https://github.com/DEJI-SOFTWARE/aplikasi-prediksi-liver-svm/blob/develop/Example/image/ha-login.png?raw=true)
@@ -55,7 +88,5 @@ php artisan migrate:fresh
 
 
 
-<a name="instalasi_anchor"></a>
-# Instalasi
 
 
