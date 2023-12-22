@@ -1,5 +1,5 @@
 # **Aplikasi Prediksi Penyakit Liver Menggunakan Algoritma SVM**
-**Author by:** *Natsuki-Yasumi & yunatamaaldho*
+**Author by:** *Natsuki-Yasumi & aldhoyunatama*
 
 Selamat datang di dokumentasi Aplikasi Prediksi Penyakt Liver Menggunakan Algoritma SVM.
 seperti namanya aplikasi ini bertujuan untuk memprediksi apakah orang itu mengidap penyakit liver atau tidak, berdasarkan data latih yang di inputkan.
