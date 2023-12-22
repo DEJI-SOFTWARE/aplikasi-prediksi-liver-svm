@@ -3,24 +3,24 @@
 
 Selamat datang di dokumentasi Aplikasi Prediksi Penyakt Liver Menggunakan Algoritma SVM.
 seperti namanya aplikasi ini bertujuan untuk memprediksi apakah orang itu mengidap penyakit liver atau tidak, berdasarkan data latih yang di inputkan.
-aplikasi ini menggunakan bantuan library libsvm dari PHP.
+aplikasi ini menggunakan bantuan library libsvm dari PHP. :grinning:
 
 ### Table of Content
-* [Required](#required)
-* [Instalasi](#instalasi)
-* [Hasil Tampilan](#hasil_tampilan)
+* :rainbow: [Required](#required)
+* :rainbow: [Instalasi](#instalasi)
+* :rainbow: [Hasil Tampilan](#hasil_tampilan) 
 
 
-  <a name="required"></a>
-  ## **Required**
-  Sebelum melakukan instalasi, kalian harus menginstal beberapa software dan library, adapun list nya sebagai berikut :
-  + Composer
-  + NodeJs
-  + Libsvm
-  + Mysql
+<a name="required"></a>
+## **Required**
+Sebelum melakukan instalasi, kalian harus menginstal beberapa software dan library, adapun list nya sebagai berikut :
++ Composer
++ NodeJs
++ Libsvm
++ Mysql
 
 > [!Note]
-> Untuk melihat dokumentasi tentang Libsvm di php bisa kunjungi [link ini](https://www.php.net/manual/en/book.svm.php), dan untuk instalasi libsvm bisa kunjungi [di sini](https://www.php.net/manual/en/svm.installation.php)
+> Untuk melihat dokumentasi tentang Libsvm di php bisa kunjungi [link ini](https://www.php.net/manual/en/book.svm.php), dan untuk instalasi libsvm bisa kunjungi [di sini](https://www.php.net/manual/en/svm.installation.php) :wink:
  
 
 
@@ -33,7 +33,7 @@ Bukalah direktori yang akan dijadikan tempat menyimpan prooject/aplikasi nya, la
 composer create-project laravel/laravel aplikasi-svm
 ```
 > [!Note]
-> Disini saya menamai aplikasinya dengan **aplikasi-svm**, kalian bisa mengganti namanya sesuai dengan keinginan
+> Disini saya menamai aplikasinya dengan **aplikasi-svm**, kalian bisa mengganti namanya sesuai dengan keinginan :wink:
 ## Install package/library
 
 Untuk memastikan package/library terinstall di proyek ketikan perintah `composer install` dan `npm install`
@@ -61,10 +61,10 @@ Setelah langkah-langkah di atas sudah dilakukan, maka saatnya menjalankan aplika
 php artisan serve
 ```
 >[!Note]
->ketika menuliskan perintah `php artisan serve` di terminal, pastikan kalian sudah berada dalam direktori aplikasinya
+>ketika menuliskan perintah `php artisan serve` di terminal, pastikan kalian sudah berada dalam direktori aplikasinya :wink:
 
 <a name="hasil_tampilan"></a>
-## Hasil Tampilan Aplikasi
+## Hasil Tampilan Aplikasi :framed_picture:
 1. Halaman Login
    ![alt text](https://github.com/DEJI-SOFTWARE/aplikasi-prediksi-liver-svm/blob/develop/Example/image/ha-login.png?raw=true)
 
