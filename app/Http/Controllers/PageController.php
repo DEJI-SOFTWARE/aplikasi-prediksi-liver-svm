@@ -8,11 +8,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Service\Utils\CheckDataSet;
+use App\Service\Utils\Functions;
 
 class PageController extends Controller
 {
 
     protected $checkDatasetUtils;
+    protected $CheckPhotoProfile;
+
     public function __construct()
     {
         // $this->checkDatasetUtils = new CheckDataSet();
@@ -32,7 +35,8 @@ class PageController extends Controller
         $user = Auth::user();
         return view('profile', [
             'title' => 'Profile',
-            'user' => $user
+            'user' => $user,
+            'photoProfile' => Functions::CheckPhotoProfile()
         ]);
     }
 
@@ -72,7 +76,8 @@ class PageController extends Controller
                 'training' => $data_training->count(),
                 'testing' => $data_testing->count(),
                 'akurasi' => $akurasi
-            ]
+            ],
+            'photoProfile' => Functions::CheckPhotoProfile()
         ]);
     }
 
@@ -82,7 +87,8 @@ class PageController extends Controller
         $data = CheckDataSet::CheckData($dataSets);
         return view('visualisasi', [
             'title' => 'Visualisasi',
-            'data' => $data
+            'data' => $data,
+            'photoProfile' => Functions::CheckPhotoProfile()
         ]);
     }
 
@@ -91,7 +97,8 @@ class PageController extends Controller
         $data = DataSet::all();
         return view('datatraining', [
             'title' => 'Data Training',
-            'data_training' => $data
+            'data_training' => $data,
+            'photoProfile' => Functions::CheckPhotoProfile()
         ]);
     }
 
@@ -100,7 +107,8 @@ class PageController extends Controller
         $data = DataTesting::all();
         return view('datatesting', [
             'title' => 'Data Testing',
-            'data_testing' => $data
+            'data_testing' => $data,
+            'photoProfile' => Functions::CheckPhotoProfile()
         ]);
     }
 

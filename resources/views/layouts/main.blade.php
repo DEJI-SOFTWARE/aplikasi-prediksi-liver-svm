@@ -14,7 +14,7 @@
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>{{ $title }}</title>
-    <link rel="icon" type="image/x-icon" href="/img/liver-icon.png">
+    <link rel="icon" type="image/x-icon" href="/img/liver-icon.ico">
 </head>
 
 <body>
@@ -78,13 +78,13 @@
             <div class="navbar dropdown">
                 <a class="dropdown-toggle text-white" style="text-decoration: none" href="#" role="button"
                     data-bs-toggle="dropdown">
-                    <img src="{{ asset('storage/' . Auth::user()->image) }}"
+                    <img src="{{ $photoProfile }}"
                         class="rounded-circle me-2 border border-1 border-light" alt="foto profile"
-                        style="height: 33px; width: 33px; overflow:hidden;>
+                        style="height: 33px; width: 33px; overflow:hidden;"">
                     <span class="username">{{ Auth::user()->name }}</span>
                 </a>
                 <ul class="dropdown-menu border border-success">
-                    <li><a href="#" class="dropdown-item fw-bold">Profil</a></li>
+                    <li><a href="/profile" class="dropdown-item fw-bold">Profile</a></li>
                     <form action="/logout" method="post">
                         @method('delete')
                         @csrf

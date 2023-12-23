@@ -4,7 +4,7 @@
     <h2 class="ms-3 mb-3">PROFILE</h2>
     <div class="row ms-3">
         <div class="card shadow-lg bg-warning card-photo-profile">
-            <img src="{{ asset('storage/' . $user->image) }}" class="rounded-circle border border-4 border-light"
+            <img src="{{ $photoProfile }}" class="rounded-circle border border-4 border-light"
                 style="border-color: #F4C430; height:150px; width:150px; overflow:hidden" alt="foto profil">
         </div>
         <div class="card shadow-lg card-profile">
