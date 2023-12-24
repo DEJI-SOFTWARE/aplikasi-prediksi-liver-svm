@@ -1,6 +1,8 @@
 <?php
 namespace App\Service\Utils;
 
+use Illuminate\Support\Facades\Storage;
+
 class CheckDataSet
 {
     public static function CheckData($data)
@@ -58,7 +60,8 @@ class CheckDataSet
 
     public static function IsDataEmpty($data)
     {
-        if($data->count() <= 0) return true;
+        if ($data->count() <= 0)
+            return true;
 
         return false;
     }

@@ -54,7 +54,10 @@
                                 <td>{{ $data->tp }}</td>
                                 <td>{{ $data->alb }}</td>
                                 <td>{{ $data->ag }}</td>
-                                <td>{{ $data->prediksi }}</td>
+                                <td
+                                    class="text-white bg-{{ \App\Service\Utils\Functions::ReturnColorValue($data->prediksi) }}">
+                                    <b>{{ \App\Service\Utils\Functions::CheckResultValue($data->prediksi) }}</b>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

@@ -164,7 +164,6 @@ return [
             /*
              * Application Service Providers...
              */
-
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
             // App\Providers\BroadcastServiceProvider::class,
@@ -189,6 +188,7 @@ return [
         // 'Example' => App\Facades\Example::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+
     ])->toArray(),
 
 ];

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Service\Utils\Functions;
 
 class UserController extends Controller
 {
@@ -23,31 +24,8 @@ class UserController extends Controller
         $user = User::where('id', $id)->first();
         $file_image = $request->file('image');
 
-        if (!is_null($file_image)) {
-            $validatedData = $request->validate([
-                'name' => 'required',
-                'email' => 'required|email:dns',
-                'image' => 'required|mimes:jpg,png,jpeg'
-            ]);
-
-            $path = Storage::putFile('profile', $request->file('image'));
-            $validatedData['image'] = $path;
-            if ($user->image != 'kosong')
-                Storage::delete($user->image);
-
-        } else {
-            $validatedData = $request->validate([
-                'name' => 'required',
-                'email' => 'required|email:dns',
-            ]);
-
-        }
-
-        $user->update([
-            'name' => $validatedData['name'],
-            'email' => $validatedData['email'],
-            'image' => $validatedData['image']
-        ]);
+        $validatedData = Functions::CheckUpdateProfileData($file_image, $request);
+        $user->update($validatedData);
         Alert::success('Berhasil', 'Profile berhasil diperbarui!!');
         return redirect()->route('profile');
 
