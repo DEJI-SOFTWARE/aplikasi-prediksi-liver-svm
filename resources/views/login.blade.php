@@ -31,9 +31,6 @@
             <label class="form-check-label" for="form-checkbox">Tampilkan Password</label>
         </div>
     </div>
-    <div class="mt-2 mb-1">
-        <a href="#" class="text-success">Lupa Password?</a>
-    </div>
     <div class="mb-3">
         <button type="submit" class="btn btn-success container">Login</button>
     </div>

@@ -13,6 +13,7 @@ use App\Service\Utils\Functions;
 class PageController extends Controller
 {
 
+
     public function index()
     {
         if (Auth::check())
@@ -35,38 +36,34 @@ class PageController extends Controller
     /*Dashboard pages */
     public function Dashboard()
     {
-        $data_training = DataSet::all();
-        $data_testing = DataTesting::all();
+        $dataTraining = DataSet::all();
+        $dataTesting = DataTesting::all();
 
-        // default jika data belum ada
+        $prediksiPositif = 0;
+        $prediksiNegatif = 0;
+        $persentase = 0;
+        
+        if (!CheckDataSet::IsDataEmpty($dataTraining)) {
+
+            $prediksiPositif = abs($dataTraining->where('hasil', 1)->count() - $dataTraining->where('prediksi', 1)->count());
+            $prediksiNegatif = abs($dataTraining->where('hasil', -1)->count() - $dataTraining->where('prediksi', -1)->count());
+            $persentase = (($dataTraining->count() - CheckDataSet::TotalWrongData($dataTraining)) / $dataTraining->count()) * 100;
+        }
+
+
         $akurasi = [
             'selisih' => [
-                'positif' => 0,
-                'negatif' => 0,
-
+                'positif' => $prediksiPositif,
+                'negatif' => $prediksiNegatif
             ],
-            'persentase' => 0
+            'persentase' => $persentase
         ];
-
-        if (!CheckDataSet::IsDataEmpty($data_training)) {
-            $selisihPositif = abs($data_training->where('hasil', 1)->count() - $data_training->where('prediksi', 1)->count());
-            $selisihNegatif = abs($data_training->where('hasil', -1)->count() - $data_training->where('prediksi', -1)->count());
-            $persentase = (($data_training->count() - CheckDataSet::TotalWrongData($data_training)) / $data_training->count()) * 100;
-
-            $akurasi = [
-                'selisih' => [
-                    'positif' => $selisihPositif,
-                    'negatif' => $selisihNegatif
-                ],
-                'persentase' => $persentase
-            ];
-        }
 
         return view("dashboard", [
             'title' => 'Dashboard',
             'data' => [
-                'training' => $data_training->count(),
-                'testing' => $data_testing->count(),
+                'training' => $dataTraining->count(),
+                'testing' => $dataTesting->count(),
                 'akurasi' => $akurasi
             ],
             'photoProfile' => Functions::CheckPhotoProfile()
@@ -86,6 +83,7 @@ class PageController extends Controller
 
     public function Training()
     {
+        
         $data = DataSet::all();
         return view('datatraining', [
             'title' => 'Data Training',

@@ -58,16 +58,7 @@ class DatasetController extends Controller
             return redirect()->back();
         }
 
-        $model = $this->svmservice->PrediksiData($dataTraining, $dataTraining, DataSet::class);
-        // return dd($model);
-        // $this->svmservice->model = $this->svmservice->TrainingData($dataTraining);
-
-        // if ($model == false) {
-        //     Alert::error('Error Prediksi', 'Pastikan Format Data Sudah Benar');
-        //     return back();
-        // }
-
-
+        $this->svmservice->PrediksiData($dataTraining, $dataTraining, DataSet::class);
         Alert::success('Berhasil', 'Data berhasil di training!!');
         return back();
 
@@ -99,7 +90,6 @@ class DatasetController extends Controller
         }
 
         $this->svmservice->PrediksiData($dataTraining, $dataTesting, DataTesting::class);
-
         Alert::success('Berhasil', 'Data berhasil di prediksi!!');
         return back();
     }
