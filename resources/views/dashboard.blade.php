@@ -54,8 +54,8 @@
                                 </div>
                                 <div class="col">
                                     <div class="progress progress-sm border border-info mr-2">
-                                        <div class="progress-bar bg-info" role="progressbar" style="width: 49%"
-                                            aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-info" role="progressbar" style="width: {{ $data['akurasi']['persentase'] }}%"
+                                            aria-valuenow="{{ $data['akurasi']['persentase'] }}" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
                             </div>
