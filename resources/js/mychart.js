@@ -6,12 +6,12 @@ const oshi = ''
 axios.get('/datatraining')
     .then((response) => {
 
-        const dataSelisih = response.data.selisih
+        const dataSalah = response.data.salah
         const dataPositif = response.data.aktual.positif
         const dataNegatif = response.data.aktual.negatif
         const dataAkurasi = {
-            selisih: (response.data.selisih.positif + response.data.selisih.negatif),
-            dataBenar: ((dataPositif + dataNegatif) - (response.data.selisih.positif + response.data.selisih.negatif))
+            salah: dataSalah,
+            benar: ((dataPositif + dataNegatif) - dataSalah)
         }
 
         const dataVisualChart = {
@@ -67,7 +67,7 @@ axios.get('/datatraining')
             ],
             datasets: [{
                 label: 'Data Prediksi',
-                data: [dataAkurasi.dataBenar, dataAkurasi.selisih],
+                data: [dataAkurasi.benar, dataAkurasi.salah],
                 backgroundColor: [
                     'rgb(54, 162, 235)',
                     'rgb(255, 99, 132)',

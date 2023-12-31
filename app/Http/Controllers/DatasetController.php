@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Imports\DataTestingImport;
 use App\Imports\DataTrainingImport;
 use App\Models\DataTesting;
+use App\Service\Utils\CheckDataSet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
@@ -58,7 +59,8 @@ class DatasetController extends Controller
         }
 
         $model = $this->svmservice->PrediksiData($dataTraining, $dataTraining, DataSet::class);
-        $this->svmservice->model = $this->svmservice->TrainingData($dataTraining);
+        // return dd($model);
+        // $this->svmservice->model = $this->svmservice->TrainingData($dataTraining);
 
         // if ($model == false) {
         //     Alert::error('Error Prediksi', 'Pastikan Format Data Sudah Benar');
@@ -113,7 +115,6 @@ class DatasetController extends Controller
     public function GetDataSet()
     {
         $dataTraining = DataSet::all();
-
         $dataAktual = [
             'positif' => $dataTraining->where('hasil', 1)->count(),
             'negatif' => $dataTraining->where('hasil', -1)->count()
@@ -127,10 +128,7 @@ class DatasetController extends Controller
         $dataSet = [
             'aktual' => $dataAktual,
             'prediksi' => $dataPrediksi,
-            'selisih' => [
-                'positif' => abs($dataAktual['positif'] - $dataPrediksi['positif']),
-                'negatif' => abs($dataAktual['negatif'] - $dataPrediksi['negatif']),
-            ],
+            'salah' => CheckDataSet::TotalWrongData($dataTraining)
         ];
         return json_encode($dataSet);
     }

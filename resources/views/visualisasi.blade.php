@@ -3,7 +3,6 @@
     <h1 class="mb-3 ms-3">VISUALISASI</h1>
     <div class="mb-3 ms-3">
         <div class="card shadow-lg p-3 border border-info" style="width: 950px;">
-            <p class="text-uppercase text-secondary">lorem ipsum</p>
             <table class="table table-hover">
                 <thead>
                     <tr>

@@ -20,13 +20,15 @@ class Functions
 
     public static function CheckResultValue($value): string
     {
-        $value == -1 ? $result = 'Positif' : $result = 'Negatif';
+        $result = "";
+        if(!is_null($value)) $value == -1 ? $result = 'Positif' : $result = 'Negatif';
         return $result;
     }
 
     public static function ReturnColorValue($value): string
     {
-        $value == -1 ? $result = 'danger' : $result = 'info';
+        $result = '';
+        if(!is_null($value))  $value == -1 ? $result = 'danger' : $result = 'info';
         return $result;
     }
 

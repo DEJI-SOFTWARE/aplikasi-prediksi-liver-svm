@@ -1,28 +1,20 @@
 <?php
 namespace App\Service\Utils;
 
-use Illuminate\Support\Facades\Storage;
-
 class CheckDataSet
 {
-    public static function CheckData($data)
+    public static function CheckData($dataSet)
     {
-        if ($data->count() <= 0) {
-            $dataAktual = [
-                'dataPositif' => 0,
-                'dataNegatif' => 0,
-            ];
-            $dataPrediksi = [
-                'dataPositif' => 0,
-                'dataNegatif' => 0
-            ];
-            $DataSelisih = [
-                'positif' => 0,
-                'negatif' => 0
-            ];
+        if ($dataSet->count() <= 0) {
             $data = [
-                'dataAktual' => $dataAktual,
-                'dataPrediksi' => $dataPrediksi,
+                'dataAktual' => [
+                    'dataPositif' => 0,
+                    'dataNegatif' => 0,
+                ],
+                'dataPrediksi' => [
+                    'dataPositif' => 0,
+                    'dataNegatif' => 0
+                ],
                 'selisih' => [
                     'positif' => 0,
                     'negatif' => 0
@@ -33,26 +25,26 @@ class CheckDataSet
             return $data;
         }
 
-        $dataAktual = [
-            'dataPositif' => $data->where('hasil', 1)->count(),
-            'dataNegatif' => $data->where('hasil', -1)->count()
-        ];
-        $dataPrediksi = [
-            'dataPositif' => $data->where('prediksi', 1)->count(),
-            'dataNegatif' => $data->where('prediksi', -1)->count()
-        ];
-        $DataSelisih = [
-            'positif' => abs($dataAktual['dataPositif'] - $dataPrediksi['dataPositif']),
-            'negatif' => abs($dataAktual['dataNegatif'] - $dataPrediksi['dataNegatif'])
-        ];
+        $dataSalah = self::TotalWrongData($dataSet);
+        $aktualPositif = $dataSet->where('hasil', 1)->count();
+        $aktualNegatif = $dataSet->where('hasil', -1)->count();
+        $prediksiPositif = $dataSet->where('prediksi', 1)->count();
+        $prediksiNegatif = $dataSet->where('prediksi', -1)->count();
+
         $data = [
-            'dataAktual' => $dataAktual,
-            'dataPrediksi' => $dataPrediksi,
-            'selisih' => [
-                'positif' => abs($dataAktual['dataPositif'] - $dataPrediksi['dataPositif']),
-                'negatif' => abs($dataAktual['dataNegatif'] - $dataPrediksi['dataNegatif'])
+            'dataAktual' => [
+                'dataPositif' => $aktualPositif,
+                'dataNegatif' => $aktualNegatif
             ],
-            'akurasi' => (($data->count() - ($DataSelisih['positif'] + $DataSelisih['negatif'])) / $data->count()) * 100,
+            'dataPrediksi' => [
+                'dataPositif' => $prediksiPositif,
+                'dataNegatif' => $prediksiNegatif
+            ],
+            'selisih' => [
+                'positif' => abs($aktualPositif - $prediksiPositif),
+                'negatif' => abs($aktualNegatif- $prediksiNegatif)
+            ],
+            'akurasi' => (($dataSet->count() - $dataSalah)/ $dataSet->count()) * 100,
         ];
 
         return $data;
@@ -64,5 +56,15 @@ class CheckDataSet
             return true;
 
         return false;
+    }
+
+    public  static  function  TotalWrongData($data) : int
+    {
+        $wrongData = 0;
+        foreach ($data as $dta)
+        {
+            if($dta['hasil'] != $dta['prediksi']) $wrongData += 1;
+        }
+        return $wrongData;
     }
 }

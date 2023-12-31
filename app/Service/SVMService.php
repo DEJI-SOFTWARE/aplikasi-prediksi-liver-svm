@@ -35,9 +35,6 @@ class SVMService
         $model->save('model.svm');
         return $model;
 
-
-
-
     }
     public function PrediksiData($dataTraining, $dataPrediksi, $modelDatabase)
     {

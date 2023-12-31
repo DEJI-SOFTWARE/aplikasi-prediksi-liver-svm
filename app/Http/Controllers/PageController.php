@@ -13,14 +13,6 @@ use App\Service\Utils\Functions;
 class PageController extends Controller
 {
 
-    protected $checkDatasetUtils;
-    protected $CheckPhotoProfile;
-
-    public function __construct()
-    {
-        // $this->checkDatasetUtils = new CheckDataSet();
-    }
-
     public function index()
     {
         if (Auth::check())
@@ -45,29 +37,29 @@ class PageController extends Controller
     {
         $data_training = DataSet::all();
         $data_testing = DataTesting::all();
-        if (CheckDataSet::IsDataEmpty($data_training)) {
-            $akurasi = [
-                'selisih' => [
-                    'positif' => 0,
-                    'negatif' => 0,
 
-                ],
-                'persentase' => 0
-            ];
-        } else {
-            $prediksi = [
-                'selisih' => [
-                    'positif' => abs($data_training->where('hasil', 1)->count() - $data_training->where('prediksi', 1)->count()),
-                    'negatif' => abs($data_training->where('hasil', -1)->count() - $data_training->where('prediksi', -1)->count())
-                ],
-            ];
-            $persentase = (($data_training->count() - ($prediksi['selisih']['positif'] + $prediksi['selisih']['negatif'])) / $data_training->count()) * 100;
+        // default jika data belum ada
+        $akurasi = [
+            'selisih' => [
+                'positif' => 0,
+                'negatif' => 0,
+
+            ],
+            'persentase' => 0
+        ];
+
+        if (!CheckDataSet::IsDataEmpty($data_training)) {
+            $selisihPositif = abs($data_training->where('hasil', 1)->count() - $data_training->where('prediksi', 1)->count());
+            $selisihNegatif = abs($data_training->where('hasil', -1)->count() - $data_training->where('prediksi', -1)->count());
+            $persentase = (($data_training->count() - CheckDataSet::TotalWrongData($data_training)) / $data_training->count()) * 100;
 
             $akurasi = [
-                $prediksi,
+                'selisih' => [
+                    'positif' => $selisihPositif,
+                    'negatif' => $selisihNegatif
+                ],
                 'persentase' => $persentase
             ];
-
         }
 
         return view("dashboard", [
